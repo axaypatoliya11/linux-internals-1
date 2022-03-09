@@ -1,0 +1,73 @@
+process first loads, starts, execution, termination, done.
+
+linux can run multiple programs, multiple process conqurently. all the processes are isolated from eachother.
+each process takes place in individual environment because every process have different 1)CPU time 2)Memory usgae 3)I/O resources.
+
+process takse: 1)CPU time 2)Memory usgae 3)I/O resources.
+
+ps -ax -> all the processes with PID(process ID)
+
+Linux uses an algorithm called "delayed reusage of PID"
+according to this algo, nre process PID does not assigned with the recently terminated process PID.
+example: process A's PID is suppose 112 and it's terminated then new process B will not be assigned with the PID 112.
+
+if process PID  = 0, then it's called as a core kernel process(swapper process).
+
+PID = 1, init process(user level process)[during boot-up time]. init process bringing a process to multi level user and it's responsible for launching all user level process and acts like parent of all
+
+getpid() -> calling process PID(lists all the process with PIDs(it's C command))
+getppid() -> to get parent process ID of calling process (it's C command)
+
+ps -elf -> gives us the PID, PPID, priority of the process, Memory usage, CPU time
+
+PROCESS STAGES:
+process created, it will be in a new state
+|
+ready state-getting prepared
+| this action done by the schedular
+execution state(running state) - running by CPU
+|
+termination stage-when the process gets done
+
+PROCESS QUEUES:
+1) Ready Queue-linkedlist of processes
+              -this is for CPU cores
+2) Wait Queue-linkedlist of the processes which are suspended
+              -wait queues are per resources
+
+The moment process is initiated, one structure is created in user structure and one another one is created in the kernal structure.
+
+PROCESS CREATIONS:
+fork(): linux kernal provides an API called fork() for launching a new prcess for the current task.
+internally bash uses fork() to initialze a new process. child gets terminated untill parent executed and once parent executed, child starts executing
+
+number of process = 1(main process) + 2**number_of_times_forks_called.
+
+there is no such software to stop the process. we can press the Ctrl+C. this will generates the hardware interrupt and process gets killed
+
+when a new child process created so the child will be replica of it's parent process
+
+fork() executes once, but returs twice.
+
+return value of fork for parent process is child PID and for child process is 0.
+if fork() fails then it returns the -1.
+
+scheduler decides which process to execute the first on the basis of load on system
+
+one more system call: vfork()->same as fork()-returns the parent and child process just as fork does
+
+the moment we call vfork(), parent gets terminated untill child executed and once child executed, parent starts executing(this is not recommended because child process is undetermined)
+
+PROCESS TEMINATION:
+1) return 0; (normal termination)
+2) exit(0); (normal termination)
+3) Ctrl+C (abnormal termination)
+
+when a process terminates, it has to send the exit/termination status to the parent process
+parent has to fetch and read the exit/termination status sent by child process
+
+zombic process - a process terminated and waiting for parent to fetch/read the exit status of the terminated child process. such a process enters a state called zombic state and process called zombic process
+
+ophan process - process which's parent process has been terminated (init process is act like parent of all the orphan processes)
+
+parent process - calling fork() inside a child 
