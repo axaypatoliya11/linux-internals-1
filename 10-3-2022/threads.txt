@@ -1,0 +1,70 @@
+Thread: It's a parallel context(set of instructions) of execution
+
+thread defined to perform a specific task
+
+Multiple threading: multiple parallel context of execution that are conqurently executing symulteniously
+
+
+threads are of 2 types: 1)user level threads 2)kernel level threads
+
+thread process:
+-creating a thread
+-maintaining a thread
+-destryoing a thread
+
+thread resource:
+-thread maintains it's own stack
+-thread maintains it's own register
+-threads have specific data
+-threads have own stadility policy and priority
+-thready have symbols called block and signmask
+
+different OS maintains difeerent thread model
+
+Linux thread model:
+one-to-one model(very effective in implementing threads)
+
+what are the advatnages of thread:
+-they are light weight in nature
+-all the threads shares the common process space(when process terminated all the threads are terminated)
+-the communication among threads and process is by default
+
+disadvantages:
+-if any one thread is corrupted then the entire process will be corrupted
+
+
+linux uses clone() API to launch a new thread
+clone() is a native of Linux OS, windows doesn't understand the threads with clone). It's a portability issue
+
+that's why IEEE people launched a standard called POSIX - portable operating system interface. POSIX is a set of functionalities to implement portable applications software
+
+POSIX standard talks about a library called Posix library. It's a defination to design a thread. they are called a posix threads(pthreads)
+
+PTHREAD(posix thread creation) CREATION:
+naming convention - dataype starts with pthread and ends with t(pthread_xxx_t).
+                    function name (pthread_xxx())
+
+pthread_t -> used to hold thread ID also called as thread object
+when thread created it has some default attributes
+
+the attributes of threads are denoted by pthread_attr_t
+
+attributes will talk about how thread will behave
+
+header file: #include<pthread.h>
+int pthread_create([pointer to the pthread_t(pthread_t * ptr)], [pointer to the pthread_attr_t(pthread_attr_t * ptr)], [argument to the function pointer(void (* function ptr))], [pointer argument(void * ptr)]) //4 arguments
+(pthread_t * ptr)-> newly created thread's ID
+(pthread_attr_t * ptr) -> newly created thread's attributes address
+
+on success creates the task
+on failure returns the error code.
+
+EAGAIN - this error is returned when we have insufficient resources
+EPERM - this error returned when we don't have enough permissions
+
+
+PTHREAD_JOIN:
+1)pthread_join make the particular thread to join with main process execution
+2)making the main oricess to wait till the termination of your thread 
+
+multithreading is very well employed on multi core machines

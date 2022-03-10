@@ -1,0 +1,11 @@
+wait();
+waitpid(int pid, int*, int option); header file to include: #include<sys/wait.h>
+
+wait and waitpid system calls are forcing the parent process to wait untill child process proceed and execute
+
+3 behaviours of wait:
+1) blocks the parent if childs are still executing
+2) if a child terminated it will immidietly returns the termination status of the child process
+3) when no child executing returns the error
+
+nice value - this is used to change the priority of a process

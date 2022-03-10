@@ -1,0 +1,15 @@
+#include<stdlib.h> //header file needs to include
+
+by using atexit((void)(*function pointer)(void)) 
+
+we can register 32 functions using atexit
+
+we can implement default routines. they are not executed immidietly after they called
+
+normal process termination - return(0) OR exit(0)
+
+int atexit()
+
+order of execution of the functions are reverse of their registration(the function register first, execute last and vice versa)
+
+after normal process termination exit() routine is making rhe function calls that are previously registered for a process by atexit() function

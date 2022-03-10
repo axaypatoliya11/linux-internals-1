@@ -1,3 +1,5 @@
 excel("name of the file", "array of string", Null); //Null ensures the end of the goven commands
 
 when a process executes a exacl program, the process program is replaced with a brand new program from the hard disc and new program starts executiong and loading. no new PID created over here.
+
+if we dont find an executable in excel() program the process goes with the origin program data
