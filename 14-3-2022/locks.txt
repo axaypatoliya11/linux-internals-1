@@ -25,6 +25,8 @@ counting semaphore: a semaphore created with more than 1 token count where each 
 
 
 
+
+
 SPIN LOCK
 1)pthread_spinlock_t my_spin; is a datatype. we can create a spin lock using this
 2)pthread_spin_init(pthread_spinlock_t * ptr, int shared);
@@ -46,3 +48,28 @@ when we are using pthread_join() function after thread termination the resources
 
 1)create indipendent thread in a deatachable state OR
 2)independent thread can be called by other thread
+
+
+
+
+
+MUTEX LOCK
+1)mutex are very similar to semaphore with the usage count of 1
+2)mutex have very simple interface but very effective
+3)whoever locks the mutex has to unlock
+4)a process or a thread cannot exit while having a lock
+5)interrupt handlers are not integreted with mutex
+
+decare->initialize->lock->unlock
+steps:
+1)declaration:
+    pthread_mutex_t my_mutex; data type pthread_mutex_t has alos a data type that is pthread_mutex_attr
+2)initialization:
+    dynamic initialization: pthread_mutex_init(pthread_mutex_t * ptr, attr * ptr);
+    we called this dynamic because during runtime we can change the properties of a pthread_mutex_t
+
+    static initialization: attributes of the mutex are fixed they can't be changed
+
+pthread_mutex_trilock(); - if a thread fails to aquire a lock will terminate/discard itself 
+
+pthread_mutex_unclock(pthread_mutex_t * ptr);

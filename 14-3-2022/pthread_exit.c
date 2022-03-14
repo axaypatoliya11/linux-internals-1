@@ -22,7 +22,7 @@ int main(){
         // sleep(2);
         // pthread_join(thread, NULL); //making a parent to wait for the child
         pthread_exit(NULL); //we're using the pthread_exit insead of join
-        // pthread_exit(NULL) will terminate the main process but it allows the pending tasks to finish
+        // pthread_exit(NULL) will terminate the main process but it allows the pending tasks(thread) to finish
     }
     return 0;
 }
