@@ -52,7 +52,9 @@ the attributes of threads are denoted by pthread_attr_t
 attributes will talk about how thread will behave
 
 header file: #include<pthread.h>
+
 int pthread_create([pointer to the pthread_t(pthread_t * ptr)], [pointer to the pthread_attr_t(pthread_attr_t * ptr)], [argument to the function pointer(void (* function ptr))], [pointer argument(void * ptr)]) //4 arguments
+
 (pthread_t * ptr)-> newly created thread's ID
 (pthread_attr_t * ptr) -> newly created thread's attributes address
 
@@ -68,3 +70,18 @@ PTHREAD_JOIN:
 2)making the main oricess to wait till the termination of your thread 
 
 multithreading is very well employed on multi core machines
+
+11-3-2022
+using a thread we can execute a void* function. solo argument passed to the thread function. in case if thread wants more number of variable then we have to create or array and we have to pass the pointer of that structure or array
+
+::how to get a thread ID?
+pthread_self() //no arguments and returns nothing
+when call from the thread function going to return calling thread ID
+
+::different ways a thread gets terminated
+1) main() -> return;
+2) pthread_exit(); //this will terminate the calling thread
+3) pthread_cancel(thread_id_of_a_thread_which_we_want_to_terminate); //if we want to terminate one thread from another. its a cancellation request made to other threads. argument for this is a thread ID to terminate
+
+if thread terminated successfully then we get return = 0
+if error then = 1

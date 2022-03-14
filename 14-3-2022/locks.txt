@@ -1,0 +1,48 @@
+SEMAPHORE LOCK
+1) declare a simaphore lock(simaphore variable)
+sem_t is used to declare a simaphore lock variabke
+
+2) initialize a simaphore variable/locak
+sem_init(object_we_are_using[&my_sem], 0[making simaphore object to be shared between threads of same process], 1[it says that initializing a same object]); is the function
+if 2nd argument is nonzero that means it's shared within the processes
+
+3) appropriate locking function
+sem_wait(sem_t * sem); is a locking function
+
+4) appropriate unlocking function
+sem_post(sem_t * sem); is an unlocking function
+
+JOb of a process on a semaphore
+
+process of a semaphore:
+1)process takes token from semaphore(so token becomes 0 from 1)
+2)use the resource(token is 0 in this process so no token for other processes so that no other process can access the resource)
+3)process gives back tocken ro semaphore
+
+binary semaphore(type of a semaphore): a semaphore whose token value changes between 0 and 1 during the operation. it's used to protect to limited resources
+
+counting semaphore: a semaphore created with more than 1 token count where each token count represents a resource
+
+
+
+SPIN LOCK
+1)pthread_spinlock_t my_spin; is a datatype. we can create a spin lock using this
+2)pthread_spin_init(pthread_spinlock_t * ptr, int shared);
+        shared can be: 1)publick to a process(shared)
+                       2)private to a process(can't shared)
+3)pthread_spin_lock(pthread_spinlock_t * ptr); this is a lockng function
+4)pthread_spin_unlock(pthread_spinlock_t * ptr); this is an unlockng function
+
+if the system hangs in this lock and unlock long time then watchdog timers will apply a reset automatically
+each and every embedded device equiped with watchdog timers. these watchdog timers are designed to continiously monitor the system
+
+DeadLock Situation: process can't move further. it's blocked
+
+::how to avoid a DeadLock Situation in code? - we can disable the interrupts before locking and enable the interrupts after unlocking(here we are taking a risk of loosing the interrupts)
+
+by default when we creates a thread it's in a joinable state(2 states available:1)joinable 2)deatachable).
+
+when we are using pthread_join() function after thread termination the resources of respective threads are removed from a memory. that is thread did not to wait for process termination. thread which is independent it has to wait for main process to termiate because resources of such thread is not removed even after termination.. 
+
+1)create indipendent thread in a deatachable state OR
+2)independent thread can be called by other thread

@@ -1,0 +1,55 @@
+pthread_attributes():
+it talks about properties of a thread
+that talks about how thread is behaved, once thread is created
+
+attributes calssified into 5 different categories:
+1)stack management -> provides functionlaity for stack management
+2)thread synchronization -> " " for thread synchronization
+3)thread scheduling priority and policy -> " " for scheduling priority and policy
+4)thread specificd data -> " " thread specified data
+5)thread signals -> " " signals
+
+when a thread is created virtual memory of size 8 MB is allocated to each stack & allocated by pthread library
+
+whenever we want to change the default properties of a theread use pthread attribute object.
+how to declare it? -> "pthread_attr_t"(data type)
+1)this data type is internally a structure with lots of parameters. initially there's a garbage value, we have to initialize it
+2)initialize pthread attribute object
+pthread_attr_t(pthread_attr_t * attr);
+3)call appropriate pthread attribute functions. we have to define that which ops we want to perform like stack management change or synchronization change eyc...
+4)create pthread bject and call it 
+pthread_create( ,(pthread_attr_t's reference)&pthread_attr_t, );
+
+at the end of the pthread_create() function, if fetch the attribute object will get our defined values
+
+no threads can share the same stack. each therad should have it's different stack
+
+STACK RELATED FUNCTIONS:
+
+pthread_attr_getstack(pthread_attr_t *ptr, void * address[stack address], int size); //getting the stack address and storing it to the address(2nd parameter) and stores size to size(3rd parameter)
+
+pthread_set_getstack(pthread_attr_t *ptr, void * my_address[stack address], int size); //this will push the address and size of my_address to the pthread_attr_t object
+
+
+size will be 000000 by default untill it's created(using malloc)
+
+
+thread-1 started in a cp-1 and thread-2 started in a cp-2 and both started instruction on same time
+
+crititcal section: the instructions or code that deals with the accessing of global shared data called as critical section.
+when 2 threads executes the critical section at same point of time leads to race condition
+
+THREAD SYNCHRONIZATION:
+linux kernel provides synchronization techniques to safeguard the critical section to protect the n numbers of threade uses
+
+types of locks:
+1)simaohore lock
+2)spin lock
+3)mutex lock
+4)atomic lock
+
+properties of simaphore:
+1)it's optimized for non-contention cases
+2)it can't be integrated with interrupts and interrupt routine service
+latency:time from start of the ISR(interrupt service routine) and end of routine
+3)no issues of priority(not available priorite)

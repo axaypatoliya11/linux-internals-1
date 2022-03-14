@@ -1,3 +1,4 @@
+// we can perform threading operations using posix
 #include<pthread.h>
 #include<stdlib.h>
 #include<stdio.h>
