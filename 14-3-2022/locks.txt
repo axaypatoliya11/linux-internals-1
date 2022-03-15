@@ -73,3 +73,8 @@ steps:
 pthread_mutex_trilock(); - if a thread fails to aquire a lock will terminate/discard itself 
 
 pthread_mutex_unclock(pthread_mutex_t * ptr);
+
+
+
+
+

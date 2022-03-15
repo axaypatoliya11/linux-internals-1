@@ -1,0 +1,14 @@
+pthread_once once: pthread_once is a data type and once is a object
+
+phread_lib provides a macro to initialize an object/variable of a pthread_once_t
+
+pthread_once_t once = PTHREAD_ONCE_INIT
+
+initial value can be either 0 or 1 based on the system
+
+pthread_once(&once, (function ptr)(void)); -> function ptr provides the address of initialization code
+after execution of pthread_once verify the first argument(object of type pthread_once_t) if the variable is set, going to schedule and execute the function provided by the function. 
+
+scheduler function takes no argument and returns 
+
+after the execution of initialization code the value of the variable is changed from it's initial value

@@ -1,0 +1,7 @@
+inherit scheduler member: it's one of your thread scheduler attribute that tells wether the policy and priority inherited by parent thread. it will have a value of either PTHREAD_INHERIT_SCHED or PTHREAD_EXPLICIT_SCHED(own policy and priority). by default it will have PTHREAD_INHERIT_SCHED 
+
+schedular poilicy and priority
+
+T1 is parent and T2 is child and if policy=x and priority=y then for child T2, policy=x and priority=y
+
+T3 is a child of T2 and we want T3 to have it's own policy and priority then we have to change the default values

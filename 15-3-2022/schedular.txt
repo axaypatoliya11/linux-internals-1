@@ -1,0 +1,21 @@
+linux OS uses sche called as CFS(complete fair schedular)
+
+each and ecery process in not provided with equal proportions of CPU slice time
+
+proportions of CPU slice time depends on a factor called as nice value.
+
+nice value gives weightage to the process w.r.t. CPU slice
+
+nice value priorities a particular process. it can increase or decrease priority of a process
+
+nice value varies from the -20 to +99. -20 is the highest priority and +90 is the lowest priority
+
+the lowest priority still getting a CPU slice time
+
+$taskset is a command that will assign particular CPU to a core. it's a utility toll that comes by default with linux destribution
+
+$taskset -c 1 ./a.exe & taskset -c 1 ./a.exe //we want to run the ./a.exe on the CPU core 1
+
+"&" -> it's a special background symbol in a linux that forces the following commands to run in the background
+
+when nice value = 0 for all the process, each process will have a time slice that is equal to [(1/n)*CPU slice time]

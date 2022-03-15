@@ -1,0 +1,32 @@
+real time linux thread have priorities from 1 to 99
+1 is the lowest and 99 is the highest
+
+priorities comes to the picture depending upon the policy
+
+different types of policy:
+1)default schedular policy: all the threads adter process will have same priority. which thread will run first all depends upon how they are made entries to run queue by the schedular. all threads will share CPU slice time equally
+2)Round Robiry schedular policy: time sharing in this depends upon the time priority. higher the priority, threads will gets execute and terminate unless and untill low priority threads can't schedule
+3)FIFO schedular policy
+
+pthread library is also called as process schedular
+
+your system schedular know how to schedule processes, but doesn't know hot to schedule the threads
+
+if T1, T2 and T3 has priority 20, 30 and 40 then T3 will executes the first then T2 schedules and executes then T1
+
+T3 depends upon it's implementation. T3 never terminates then T2 and T1 will never executes
+
+if T4 have same priority as T3(i.e 40) then time is shared between T3 and T4 and T3, T4 schedules simulteniously
+
+
+pthread_getschedparam(thd id, policy, sched_param);
+
+third argument called as a strct sched_param which has only one ineger member called as sched_priority(reason for structure: for future extension). that reflects the priority that assigned to a particular threads
+struct sched_param{
+    int sched_priority;
+}
+
+line 22 will gives the policy and priority to the thread which's ID is passed 
+
+we can call process as a thread
+

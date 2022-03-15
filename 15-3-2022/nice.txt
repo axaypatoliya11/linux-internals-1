@@ -1,0 +1,8 @@
+kernel transfer CPU to other process which is ready to outcome before that
+
+kernal saves the contect of process1 in kernal space
+
+kernal loads context of new process & executes new process
+
+
+after termination of new process the process from wihch CPU taken of will start resume from the same point where it was stopped
