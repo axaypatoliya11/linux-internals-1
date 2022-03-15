@@ -19,11 +19,12 @@ int main(){
         }
     }
     
-    lseek(fd4, 0, SEEK_SET);
-    lseek(fd4, 0, SEEK_END);
-    lseek(fd4, 0, SEEK_CUR);
-    read(fd4, to_read, leng);
-    printf("read buffer value is: %s\n", to_read);
+    printf("SEEK_SET: %d\n", lseek(fd4, 0, SEEK_SET));
+    printf("SEEK_END: %d\n", lseek(fd4, 0, SEEK_END));
+    printf("SEEK_SET: %d\n", lseek(fd4, 4, SEEK_SET));
+    printf("SEEK_CUR: %d\n", lseek(fd4, 0, SEEK_CUR));
+    // read(fd4, to_read, leng);
+    // printf("read buffer value is: %s\n", to_read);
 
     int close(int fd4);
 

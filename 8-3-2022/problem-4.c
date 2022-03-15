@@ -5,7 +5,9 @@
 #include<string.h>
 
 int main(){
-    int fd4;
+    int fd4, create_fd;
+    
+    create_fd = creat("created.txt", 777);
 
     fd4 = open("linux400.txt", O_CREAT | O_RDWR, 777); //to read the file(in readonly mode)
 
@@ -25,6 +27,7 @@ int main(){
     printf("read buffer value is: %s\n", to_read);
 
     int close(int fd4);
+
 
     return 0;
 }
