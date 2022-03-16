@@ -1,0 +1,12 @@
+3 types of contexts:
+
+1)process context: kernel executing a piece of code/software onbehalf of a process(in the CPU slice time of a process) hiwhc has    initiated the system call. this called as a process context. by default most of the time your kernel is expected to be in process context code.
+
+2)normal context: a kernel executing a kernel service onbehalf of another kernel service. these all code are expected highly privilledged code. only in high privilledged mode they can access the underline hardware. the apps which runs in the user space of a RAM are less privilledged and because of the same they can't access the hardware directly
+
+3)interrupt context: it's executing a piece of code/software in the context of an interrupt. kernel executes a piece of ISR function onbehalf of a particulat interrupt
+
+PIC controller - programmable interrupt controller
+IRQ(interrupt request) lines are shared in case of architecture supporting more devices
+whenever the a interrupt occur it sends to PIC controller, which will inform the CPU. CPU raising exception to the linux kernel operating system.
+

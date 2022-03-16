@@ -1,0 +1,9 @@
+in a bigger picture, data+bss+heap combined called as "program data segment"
+
+int brk(void * end_ptr)
+
+void * sbrk(size_t nbytes);
+
+sbrk() and brk() function will change the program break point. that is set a new program break point
+sbrk will change the program break point. and return the address of new break point
+brk() function instead of taking bytes incase of sbrk function takes a desired new address as the new program break point. on a successful execution set a new break point and return 0 if success and -1 for failure

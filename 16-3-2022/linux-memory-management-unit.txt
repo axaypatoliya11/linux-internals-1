@@ -1,0 +1,34 @@
+
+
+
+what is a memory?
+->
+
+types of memory allocation:
+1)static 2)dynamic 3)automatic
+
+automatic memory allocation:
+->local variables, when a program enters to a block then memory for the variable in that block allocated automatically
+
+NOTE: in all these operations include string.h header file
+memory manipulation calls: 
+1)memset:
+int * memset(void * add, int c, size_t nbytes) size_t is a kernal datatype
+the moment memset calls, memset will go to the address provided by the pointer(void * add) and starts filling the address location with the given constant int c for the given nuber of bytes(size_t nbytes). on success returns the address and on failure returns the -1.
+
+2)memchr:
+int * memschr(void * add, int c, size_t nbytes) -> on success returns the address of scanned of const character and on failure returns the -1.
+the moment process executes memchr, jumps to the address provided by the pointer and scan the given address for a given constat C value. the mement constant found returns the address of the scanned variable. it scans for given number of nbytes
+
+3)memrchr(reverse scan):
+int * memschr(void * add, int c, size_t nbytes) -> on success returns the address of scanned of const character and on failure returns the -1.
+
+4)memcmp(mem compare):
+void * memcmp(void * address, void * address2, size_t nbytes, );
+it's used to compare 2 different buffer location. the moment provided executes memcmp, both the pointers jumps to 2 different buffer location and starts comparing addresses byte by byte untill they get non matching data. if once the data us non matching, returns ascii difference of both
+
+5)memmove:
+memmove(void * destination, void * src, size_t nbytes);
+memmove copies data from src and dump into destination buffer for given number of bytes. on success returns pointer to destination address for failure it returns -1. 
+memmove is same as memcpy but difference is that memmove is suppossed to generate the guranteed resulted, slow in exception and reliable. whereas memcpy is not reliable, fast in execution.
+in case of source and destination overlapings memmove provides guranteed result(the risk of overlaping is rolled out). 

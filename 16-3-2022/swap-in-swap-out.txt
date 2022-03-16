@@ -1,0 +1,24 @@
+swap partition is suppossed to twice the size of RAM. if RAM size = 4 GB then swap partition will be of 8 GB
+
+swap out: OS pushes inactive process from the RAM into swap partition of the hard disc
+
+swap in: OS pulls back process back to RAM region is called swap in process 
+
+our requirement: while swapping kernel should not touch my login memory region/process address. in such case we will apply a lock to that region and kernel will never touch that region.
+
+int mlock(void * address, size_t nbytes) //do not touch size nbytes
+from address to the given nbytes kernel will not touch
+
+on success it gives 0 and on failure it returns error code.
+
+what kind of error code it gives?
+-> EPERM - when you failed to lock the specified region
+EAGAIN - specified address cannot be locked
+ENOMEN - if you're trying to lock more than the permitted region(most commonly it occurs)
+
+
+----------------------------------------------------------------
+
+int mlockall(int buffer); THIS IS HW
+
+int mlockall() function locks all the processes complete address spaces

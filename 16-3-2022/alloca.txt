@@ -1,0 +1,13 @@
+void * alloca(size_t nbytes);
+
+when heap section is full and dynamic memory allocation required, alloca system call will allocate memory from stack segment of the process
+
+reputative alloc calls causes stackoverflow
+
+when a memory allocated using malloc, they provide memory from a pool of fixed sizes; resulting a memory fragmentation(left over part which is not being used)
+
+when a memory is allocated using alloac, no fragmentation will be there. it can generate memory of any sizes. very little wastage and fast execution. they do not maintain any .
+
+in malloc if free() is not called, may leads to memory leak and application crash.
+
+in alloac there's no need to call free() this is what the greatest advantage. the moment closing bracket('}') encounters memory will be automatically free

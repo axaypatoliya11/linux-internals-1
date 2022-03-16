@@ -1,0 +1,22 @@
+if an i/o request make repetative time, much of CPU time spent in IO operation and there could be n number of other application of kernel services which are waiting for CPU slice time. in that case this design doesn't work.
+
+
+memory anonymous mapping:
+void * mmap(void * address, size_t nbytes, int Protection, int flex, int fd, offset_t offset);
+
+mamp is a function that maps a kernel file memory region, device kernel region or some random kernal memory region into the current process address space. on successful mapping it returns the address of the mapped region to the pointer
+
+the first argument is recommended to take 0 as an address argument that is while mapping we are requesting the kernel to please map the given region at a free space in my process address space
+
+prtection like...(argument 3)
+PROT_READ -> pages can be read
+PROT_WRITE -> pages can be write
+PROT_EXEC -> pages can be execute
+
+flags like...(argument 4)
+MAP_LOCKED -> lock
+MAP_SHARED -> shared between process
+MAP_PRIVATE -> process maintain for itself
+MAP_ANONYMOUS -> 
+
+fd = -1(argument 5) and offset = 0(argument 6)
