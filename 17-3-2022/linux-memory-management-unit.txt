@@ -1,0 +1,53 @@
+linux mmu is divided in two parts:
+1)high level MMU - it's independent of processor architecture
+2)low level MMU - it's dependent of processor architecture
+
+high level is isolated irrespective of hardware architecture
+
+when low level is running it creates lots of pages(memory structures)
+
+when kernel bootup starts many low level services are executing as a part of that low level MMU also start executes. low level MMU creates lots of memory data structures. it's creating a memory data structure like (struct Pages) which is 32 bit(4 byte). 20 bits are denoted for page number and 12 bits are for offset
+
+::important::
+
+if CPU encounter an instruction called [int x = 10;] (page_number + offset) is given to the CPU. out of which CPU fetches the page numebr and gets the corrusponding frame number translator.
+
+
+pages are having the address from 0 to 4095(total 4096 bytes). once we initialize a varibale then [page number + offset(where in 0 to 4095 where it's initialized)] is assigned. this set of pagenumber and offset is called virtual memory address.
+
+->Per process page table entry(PTE) maintained in the PCB of the process.(what is PTE?->PTE maintains all the records of process pages. like few pages of data segment, stack and heap etc...). if there's no PTE maintained kernel will never know where my process is in the memory
+
+->PTE identifies these particular pages belongs to these particular processes
+
+Paging mechanism:
+if (int x=10 denotes virtual memory address 9 in virtual memory then physical address(in RAM) of x is also 9)
+
+In CPU there's something called as PAGING UNIT will have a register called as page table entry pointer(address). this will have the address of kernel page frame relation table.
+CPU fetches the page number from the virtual address and read the register called page table entry register and get the address kernel page frame relation table. for a given page number CPU will fetch the respective page number. take the frame number and adds to the offset. will get thr physical address of variable 'int X' in memory. for every read/write instruction CPU has to do this. 
+
+what CPU has to do?
+->logical address to physical address
+
+Demand Page: When process created pages of the process are loaded into the memory on demand and it's called as demand pages
+
+virutal memory is a memory section created temporarily on storage device.
+
+linux uses a RAM and virtual memory, assigned virtual address to the process.
+
+$vmstat -s #command will provide amount of virtual memory free(available), and amount of virutal memory used by the kernel
+alternate command of $vmstat -s is $free
+
+after issue the command $vmstat 'b' is the uninterruptable sleep process
+wa is virtual address translation
+
+Library file: it's a group of pre compiled object files packed in a file called as Library files
+
+2 types of library: 1)static library and 2)dynamic library
+Static library: it linked by static linking during program compile time
+Dynamic library: it linked by dynamic linking during program compile time. during runtime it's appended to the executable file
+
+ar is archive tool a linux command utility tool use to generate/create shared library
+$ar rcs lib_st.a calc_mean.o calc_sub.o
+.a is a static library extension
+rcs = Replace, Create, Symbol
+    Symbol is combination of functions and variables that we are using
