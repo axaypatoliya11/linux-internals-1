@@ -1,0 +1,10 @@
+processor can look into memory in 2 different ways
+mode-1) Real mode
+mode-2) Protected mode(virtual addressing mechanism)
+
+in real mode processor looks at memory in series of byte. array of byte and sequence of byte. where each byte is addressed
+in Protected mode processor looks at memory in set of blocks
+
+once the machine(system) is power on, processor is in the real mode and looking memory as a series of byte; executing bias code and boot loader code in the real mode whose memory addresses are provided by the vendor. once boot loader scan the operating system and loads into the RAM and kernel boot up process get starts at this stage the processor shifted from real mode to Protected mode and this process is called as processor initialization. where your processor looks at memory as set of blocks(set linked list of pages)
+
+operating system creating illution to the processor and making processor look in memory as set of pages

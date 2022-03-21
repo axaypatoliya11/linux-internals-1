@@ -1,0 +1,5 @@
+if you observe real application realtime debug example most of the times debugs in you application are from users point of view accidently dereferencing a null pointer, dereferencing a pointer which is uninitialized, dereferencing a pointer which already free(), and accessing the memory beyond your lower boundry region(example: before 0 index in array; a[-1]). accessing the memory region which is beyond the upper boundry region.
+
+segmentation fault: when a process created and operating system allocating a block of memory to the process(process address space-PAS).now my program is suppossed to access allocated process address space. if the program is violating the PAS then leads to segmentation fault.
+
+processor will get the logical addresses and map to the respective physical addresses. in case if the logical address is suppossed to be an invalid memory address CPU giving same invalid memory address to the kernel page frame relation table. CPU will deliver page fault error to the kernel and kernel checks for the process segmentation and then send a signal to the process(sigsegv). on reception of a signal the process aborts

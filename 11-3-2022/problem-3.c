@@ -2,7 +2,7 @@
 #include<unistd.h>
 
 int main(){
-    printf("I'm going to open a info1.txt from vim\n");
+    printf("I'm going to display a process tree\n");
     // int ret = execl("/usr/bin/vim", "vim","info1.txt", 0);
     int ret = execl("/usr/bin/pstree", "pstree", 0, 0);
     if(ret == -1){

@@ -1,0 +1,30 @@
+GDB allows to probe the source code while the program is in execution. when any crash occurs, it also allows us to get the exact reasons for the crash
+
+GDB is a free software, a command line tool that operates on executable files produced by compilation process. GDB is a powerfull debugging tool for C programming language and also supports other programming language such as C++, JAVA, Pascle, Forton and Python
+
+
+-g is adding debugging symbol information to the executable file(symbols are nothing but variables and functions of the source code)
+
+
+BREAKPOINTS: in order to pause your execution breakpoints are applied from the GDB command line. these breakpoints are applied using function name as well as line numbers
+
+break function_name -> stops execution at function_name
+break 10 -> stops execution at line number 10
+
+clear -> clears all the breakpoints
+
+next OR step -> this will executes the single line
+next will simply execute the function call and comeout whereas step will goes inside the function call if the function is calling the other function then it will also go inside that function
+
+p var -> this will prints the value inside variable var
+
+info locals -> it provides all the local variable values
+
+backtrace OR bt -> this will executes the previously executed line
+
+while executing the GCC compiler we never check for memory violations and generating the executable file. malloc returned null because it's never allocated the memory of size 2 GB(in malloc_gdb.c file)
+
+
+-->>GDB with command line argument: gdb --args ./executable_file argu1 argu2 ...
+2nd way for GDB with CLI: gdb ./executable_file then enter "(gdb) r all the arguments here"
+3rd way for GDB with CLI: gdb ./executable_file then enter "(gdb) set args all the arguments here"

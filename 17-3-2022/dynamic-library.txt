@@ -1,1 +1,0 @@
-dynamic libraries are also called as shared library

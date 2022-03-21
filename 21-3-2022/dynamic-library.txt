@@ -1,0 +1,12 @@
+dynamic libraries are also called as shared library. it is used while runtime of the code. dynamic library ends with .so (static ends with .a)
+
+-fpic -> creating a dynamic library with the flag called(fpic-position independent code). dynamic library should be relocatable that means these library instructions must be read to get loaded into any other memory location(in any process address space). that is the addresses of the library instructions must be changable
+
+-shared is a flag used to generate a dynamic library
+
+
+ldd executable_file_name - it's a linux command line tool that tells what are the shared library dependencies for your executable file
+
+the other way to run the dynamic library is LD_LIBRARY_PATH=:"/your/path/here"
+
+export LD_LIBRARY_PATH -> we are informing dynamic linker where to search for dynamic library
