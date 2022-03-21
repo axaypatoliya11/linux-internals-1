@@ -1,3 +1,5 @@
+// 5(b).Write a program, where functions of the program are called in the reverse order of
+// their function calls from main().
 
 #include<stdio.h>
 #include<stdlib.h>

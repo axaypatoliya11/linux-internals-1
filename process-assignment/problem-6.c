@@ -1,3 +1,6 @@
+// 6. Write a program child executes(exec()) a new program , while parent waits for
+// child task to get complete.
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>

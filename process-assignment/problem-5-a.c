@@ -1,3 +1,6 @@
+// 5(a).Write a program parent process wait untill ,while child process open a file and read file
+// data into empty buffer.
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -23,6 +26,7 @@ int main(){
             }
         }
         read(fd, to_read, leng);
+        printf("value of buffer: %s\n", to_write);
     } else{
         // run this as a parent process
         wait(0);

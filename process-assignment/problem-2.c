@@ -1,3 +1,6 @@
+// 2.Write a program such that parent process create two child processes,such that
+// each child executes a separate task.
+
 #include <stdio.h>
 #include <fcntl.h>
 #include <sys/types.h>
