@@ -22,9 +22,41 @@ info locals -> it provides all the local variable values
 
 backtrace OR bt -> this will executes the previously executed line
 
+p sizeof varname -> this will prints the vraname's size
+
+p ptype varname -> this will prints the vraname's type
+
+set varname = "value" -> this will set the vraname's value(varname="value")
+
 while executing the GCC compiler we never check for memory violations and generating the executable file. malloc returned null because it's never allocated the memory of size 2 GB(in malloc_gdb.c file)
 
 
 -->>GDB with command line argument: gdb --args ./executable_file argu1 argu2 ...
 2nd way for GDB with CLI: gdb ./executable_file then enter "(gdb) r all the arguments here"
 3rd way for GDB with CLI: gdb ./executable_file then enter "(gdb) set args all the arguments here"
+
+GDB fails to trace out memory heap violation. compiler is not checking for the memory allocation, even GDB fails to check memory allocation. 
+
+GCC and GDB are not designed to detect the memory segmentation.
+
+glibc is standard C library. it has it's own implementation of malloc(), calloc() and realloc()(not memory allocation but these are standard). problem with malloc() and respective dynamic memory allocations, allocate more memory than we request for. in normal desktop PC machines it's not a problem/bug, but the same thing happens in real time embedded application then it's a serious bug.
+
+electric-fence is not a debugging tool but it's a memory profiling library. electric-fence has it's own implementation of malloc() and calloc() memory allocation calls. malloc() and calloc() of electric fence will allocate the given memory that is requested for
+
+buggy_code.c in 22-3-2022-gdb is for upper boundry violation
+
+electric-fence is configured to find out either upper boundry memory violations or lower boundry memory violations but not both at a time. because it's a library not a debugger
+
+to use it for lower boundry memory violation
+
+valgrind is a runtime tool. is used to trapped out heap memory violation. also called as memory profiling tool. valgrind is a standalone debugger(not a library, it's debugger like GDB) that is used at runtime
+
+when we use default glipc malloc() and calloc() valgrind will show why these process has failed
+compile code with gcc only then run valgrind ./a.out(for simple run)
+compile code with gcc -g then run valgrind ./a.out(line numbers will also be there)
+
+segmentation ->efence
+memory na dakha(occhi vadhare) -> valgrind
+
+
+COMPILATION ERROR:->use of undefined function variables, syntax errors

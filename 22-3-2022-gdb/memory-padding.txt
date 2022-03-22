@@ -1,0 +1,11 @@
+memory padding:
+on a 32-bit architecture machine the address bus is 4 bytes and when a CPU is trying to fetch a character data the data on the address bus will not move untill all 4 bytes are filled. OS will add unmeaningfull values to address bus and the data on address bus drives and CPU removes the unmeaningfull value and fateches the required data and this process is called as memory padding 
+
+
+structure padding:
+the same as memory padding is applied to structure is called structure padding.
+adds one or more empty bytes between the memory addresses to align the data in memory
+
+
+varname __attribute__((aligned(nbytes)))
+aligned is an structure attribute that specifies please provide minimum memory alignment for my structure variable. based on alignment it's paking the structure with given alignment 
