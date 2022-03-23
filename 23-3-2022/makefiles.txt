@@ -1,0 +1,33 @@
+makefile is a program building tool used in linux and unix kind of operating systems.
+makefile is a set of commands that are similar to the commands that run from the terminals.
+the only deference is makefile has organized instructions stored as a text(.txt) file
+makefile should be created in current directory with upper case M notation(to follow this convection we have to main a naming concention such that each file name starts with 'M')
+
+makefile contains a procedure that program execution build.
+
+kernel developers using subsystem makefiles.
+
+entire linux kernel operating system(resident linux kernel means...the which we are using) is built into kernel build file system.
+
+the subsystems also needs kernel build makefiles.
+
+kernel build developers will be working on kernel build makefile system.
+
+processor architecture makefile path: /lib/modules/5.4.0-104-generic/build
+
+Linux supporting different processor architecture.
+
+Makefile can contain variables, single targets or multiple targets.
+
+what is targets? -> targets are the filename that are genrated by makefile program.
+target can be an executable file of can be object file or it can be a simple action command such as clean
+
+There's tool called make, linux utility tool that comes by default with linux distribution. The primary job of maketool is to execute the makefile(going to the makefile and executing the instructions of the makefile)
+makefile contains variables and targets(targets like executable file, object files etc...)
+
+make will break down the large project code into smaller pieces of code will asses each and every small piece of code wether it requires recompilation or not.
+
+internally make is executing gcc(int our example)
+
+This makefile contains variable and multiple targets here created object files as target.
+If I want to compile individual file then compilation becomes easier because only respective file is being compile
