@@ -1,0 +1,5 @@
+atomic_t is datatype provided by the Linux for the atomic lock
+
+the moment we initialize a varible with the datatye atomic_t, some functions are available for that integer like...
+atomic_incr(varname); //this will lock the variable increases the variable value and then unlocks the variable
+atomic_decr(varname); //this will lock the variable descreses the variable value and then unlocks the variable

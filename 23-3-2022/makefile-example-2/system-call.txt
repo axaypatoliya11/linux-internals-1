@@ -1,0 +1,11 @@
+int system(fork, execl, wait) //this is a system call
+
+
+error case for above system call: if child is not created that will be failure
+
+if you dont give any argument to the system() above it will return an error calling too little arguments
+
+in case if we passes the null to system() then it will returns either 0 or 1.
+    if returned 1 = shell is available
+    if returned 0 = sheel is not available
+
