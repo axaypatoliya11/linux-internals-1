@@ -30,7 +30,7 @@ counting semaphore: a semaphore created with more than 1 token count where each 
 SPIN LOCK
 1)pthread_spinlock_t my_spin; is a datatype. we can create a spin lock using this
 2)pthread_spin_init(pthread_spinlock_t * ptr, int shared);
-        shared can be: 1)publick to a process(shared)
+        shared can be: 1)public to a process(shared)
                        2)private to a process(can't shared)
 3)pthread_spin_lock(pthread_spinlock_t * ptr); this is a lockng function
 4)pthread_spin_unlock(pthread_spinlock_t * ptr); this is an unlockng function

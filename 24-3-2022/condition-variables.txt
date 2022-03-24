@@ -1,0 +1,8 @@
+initialization of condition variable: pthread_cond_t mycond
+
+waiting for condition variable: pthread_cond_wait(pthread_cond_t *, pthread_mutex_t)
+
+thread has executed a mutex block.
+thread is expecting some condition to occur, untill that condition happenes thread has to sleep therefor pthread_cond_wait thread function is called which take 2 arguments:
+1)condition on which it has to wait
+2)the mutex object

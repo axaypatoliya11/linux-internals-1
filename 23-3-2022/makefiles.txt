@@ -30,4 +30,7 @@ make will break down the large project code into smaller pieces of code will ass
 internally make is executing gcc(int our example)
 
 This makefile contains variable and multiple targets here created object files as target.
-If I want to compile individual file then compilation becomes easier because only respective file is being compile
+If I want to compile individual file then compilation becomes easier because only respective file is being compile.
+
+
+Android is best example of embedded Linux OS. Embedded Linux compact, coustomize Linux OS.

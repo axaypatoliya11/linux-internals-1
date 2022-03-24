@@ -1,0 +1,9 @@
+system function call will not return untill the extention of shell command
+
+threads have it's own stack area, synchronization property(locks and all), scheduling policy and priority, thread signals
+
+pthread_attr_getstack(attr, address, size): //fetches the data 
+
+pthread_attr_getstack(attr, my_address, my_size): //sets the data
+
+Command Line Arguments are on the top of stack.
