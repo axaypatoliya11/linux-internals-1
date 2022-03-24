@@ -1,0 +1,13 @@
+policy classified into three things:
+1)default 
+2)FIFO
+3)round roubiry
+
+default linux scheduling policy: will have dynamic priority and change by the system and changed on thread behaviour
+FIFO: have some fix priority, 1 is lowest and 99 is highest
+
+with priority 1 will executes first compare to priority 99
+
+FIFO threads untill they execute an terminate or a suspended will not allow othres to schedule and execute
+
+round roubiry: all the threads are in circular linkedlist(circular rode). all threads executes for equal amount of time without having priority
