@@ -1,0 +1,54 @@
+process runs in an independent environment. process have got it's address space and it's own resources. in a large application there could N number of process running. each process is design to handle a saperate task. that times these processes needs to communicate to each other.
+
+for process communication it's never recommended a process X to interfere into the address space of process Y or communication between the process X and Y. for that Linux has provided techniques called as Inter Process Communication(IPC).
+
+Communication can be on a single machine or over the network. A communication between the processes on a single machine is called as inter process communication and communication between the processes over the network is called as network communication.
+
+For network communication requires IP address of 32 bit number and 16 bits port numbers are used. IP addresses are used to identify the nodes(machine, server, switch) in the network and also used to connect and communication.
+
+16 bit port numbers are used for identify your process within the node.
+
+Communication are of 2 types:
+1)connection oriented communication
+2)connection less communication
+
+
+HTTP--request-->HTTP
+program<--respose--server
+example: email
+
+Linux provides 5 differnet Inter Process Communication techniques:
+1)pipes->pipe is a serial communication device that permits uni directional data transfer
+       ->pipe is used between related processes such as parent and child but not with any other processes
+       ->whatever is written on a write end the data in the same order is fetched on a read end of a pipe
+       ->internall pipe is a special file which got 2 descriptors(1 for write end and 1 for read end)
+       ->to create a pipe first it requires an integer array of 2 elemenrs in 1st element fd[1](for write end) and in 2nd element fg[0](for read end)
+       ->it requires a system call called pipe();
+
+$ls | less ---> the moment command applied, shell is creating 2 processes in such a way that ls is connected to the write end of the pipe and less process is connected to the read end of the pipe
+
+
+Major limitation of pipe system call is the communication possible only between parent and child but not with any unrelated processes
+
+scenario: pipe created then-> parent calling fork() system call, child is inheriting a pipe file from it's parent. that is a copy of file descriptors copy to child process. pipe is writing to write end and then write end is closed then child is  reading from the read end
+
+after writing parent is calling for flush operation
+flush operation: pushing the data, immedietly data reflects to the read end
+
+
+case-1:
+pipe capacity is limited. a writer writes 100 bits per second then a consumer process that recieving data at slower rate 50 bits per second. after some time pipe gets full even writer process has the data to write but cannot write data to the pipe because pipe is already full. writer process getting blocked here untill some space or room is created inside pipe.
+
+case-2:
+pipe is empty and reader is attempting to read a data from pipe then reader gets block untill some data written to the pipe
+
+
+
+
+
+limitation of the pipe:
+FIFO, are named pipes which have a name in file system is one of a IPC communication technique.
+
+communication through FIFO need not be a realted processes. the parent and child limitation is overruled
+
+$mkfifo -> it's a command to create a FIFO

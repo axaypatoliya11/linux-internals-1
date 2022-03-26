@@ -1,0 +1,6 @@
+mkfifo fifoname
+
+open 2 terminals where fifoname located
+
+in one terminal run, $cat < fifoname
+then run $cat > fifoname (write to this terminal and on the second terminal it will be displayed)

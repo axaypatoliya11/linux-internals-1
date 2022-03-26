@@ -1,0 +1,7 @@
+normal(regular file with one fd-read and write both happenes using one fd)
+directorial
+pipe(special file with 2 fd's one to write and one to read)
+character
+block device files(all storage devices has block device files) /dev contains all the block device files
+
+$cat /proc/devices --> will show you active character and block devices
