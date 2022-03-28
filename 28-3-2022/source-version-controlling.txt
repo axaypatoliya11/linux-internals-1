@@ -1,0 +1,52 @@
+source control/version control: source control helps into track down files and files progress of your project over a period of time.
+
+Also allows the user to distribute changed and modified files or a timeline.
+
+Helps against the data damage(code damage/loss/courrepted).
+
+In case of data damage you can go back in time and you can get the snapshots of the projects.
+
+File in GitHub are stored as a series of the snapshots.
+
+Helps in designing complex projects.
+
+
+
+In simple terms Git and GitHub is same as Google Drive but the difference is that in GitHub we can store only source files.
+
+
+Commit is to add/store to local repository.
+Push is to add from local repository to remote repository.
+
+Git and GitHub works on a disconnected repository system that is the advantage when connected to other source control. 
+
+:Git project:
+working directory->Staged->repository
+
+::3 types of file in working directory:
+1) Modified file
+2) Staged file(ready to go to next step)
+3) Files that are safely stored in repository
+
+
+:::Basic workflow of GIT:
+-modified files will be a part of your working directory
+-all the staged files will be under a stage called staging
+-once trigerred commit all the files are stored permenently in repository
+
+Git Configuration:
+$git config -> command to set the GIT configurations.
+->it's a GIT source control tool helps us to get or set fit configuration variable.
+
+$git config --global user.name "   "
+$git config --global user.email "   "
+--global will gets the information and stores in local machine in root home folder.
+
+
+clone: it get a copy of the remote repository on a local machine. 
+
+
+steps to follow:
+1)start cloning the remote repository
+2)create a working directory to start a project
+3)enter to that working directory
