@@ -47,6 +47,6 @@ clone: it get a copy of the remote repository on a local machine.
 
 
 steps to follow:
-1)start cloning the remote repository
-2)create a working directory to start a project
-3)enter to that working directory
+1)start cloning the remote repository.
+2)create a working directory to start a project.
+3)enter to that working directory.
