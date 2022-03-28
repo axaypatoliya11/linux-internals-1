@@ -1,0 +1,5 @@
+ctags tool creates a tag file that shows the index of the objects of complete project source.
+
+ctags uses something called as locator and location in turn provides index for the objects(name, path name, line number to search an object)
+
+###explore this more

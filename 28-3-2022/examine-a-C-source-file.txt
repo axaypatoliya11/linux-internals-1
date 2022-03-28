@@ -1,0 +1,7 @@
+cscope is a Linux utility tool used for software development operation. Using csope setting at one particular location we can browse through entire project source file. 
+
+We can examine the symbols(variables, macros & functions) of the source code. We can check where symbols used in source code, we can also modify the symbols as well. We can check what functions are calling all functions. We can change the string/data of the source file. We can find the particular file. We can check for hash include files.
+
+assume that We have given the wrong header file, we have an option hash include file using which we can check wether the file is availabe or not. Also for the assignments of the variables.
+
+$cscope -R
