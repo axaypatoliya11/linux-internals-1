@@ -1,0 +1,10 @@
+create a fifo
+
+mkfifo(const char * pathname, mode_t mode)
+return 0 on successful execution and -1 on error.
+
+the moment process executes mkfifo system call a new file in the given path is created and file is set to be enter in file system of Linux kernel operation system. FIFO file have all the features as your regular ordinary file. Any process can open your FIFO file for reading and writing like any other regular file.
+
+Condition is both the sides simultaniously FIFO hasto be opened by processes. If a process opening for reading it has to wait for the writing side to open the FIFO and write to it and vice versa.
+
+Using simple FIFO client server communication protocol can be implemented.

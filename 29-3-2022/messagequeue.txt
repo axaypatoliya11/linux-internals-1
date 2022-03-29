@@ -1,0 +1,51 @@
+this comes under IPC file standard
+
+$ipcs -q -> command to check the message queue
+
+Message queue is linked list of messages in the kernal space. Each and every message queue is identified by a uniqe indentifire called message queue ID.
+
+When a message queue is created OS Kernel will return message queue ID for the message queue.
+
+Each and every message queue is associated with the structure called as...
+
+struct msqid_ds{
+    msgq_msg: number of messages in the message queue
+    msg1_bytes: max number of bytes in a message queue
+    message of the last process ID that has performed the write operation(send time)
+    message of the last process ID that has performed the read operation(recieve time)
+    message of the last process ID that has performed the last message send time operation(also called as a change time)
+
+};
+
+this structure talks about complete statistics of the respective message queue.
+
+steps of message queue: #include<sys/msg.h>
+1)create a message queue using a system call->  msgget(key_t key, int flags) ---on success returns message queue ID and on failure returns -1.
+
+The moment process executes msgget function message queue is created and a uniqe ID is allocated to it and also a structure called struct msqid_ds is allocated and initialize(line number-11)
+
+/proc/sys/fs/mq -> this will shows all the info of message queue(cd to this directory and then cat the files)
+
+
+NOTE: process whenever requesting a resources such as shared memory, message queues and simaphores from the Linux OS the OS requires a key of type key_t(internally it's an integer type). This is defined in #include<sys/type.h> header file
+
+On usage of key on success the OS will alocate the resource(message queue, shared, memory, simaphores) with an unique ID. This key is agreed between both client & server(sender & reciever). This is the first step for constructing a client server framework for an application.
+
+A message queue can have multiple readers and writers.
+
+
+2)write to the message queue
+msgend(int msgtd, void const * pointer(buffer), size_t nbytes, int flag) 
+message is composed of data and type which is packed in a structure
+1st argument-> message queue ID for which we want to send message
+2nd-> void pointer to the string buffer which contains the data
+3rd-> size of the message which we want to send
+4th-> int flags(if no flag is used, if the message queue is full then message send operation will block. in such case if ipc_no_wait is used and message queue is full message send function will return immidietly with the message e_again)
+
+eid_rm:->before process tried to send the message someone has removed the message queue then this error will comes
+
+3)read the message
+msgercv(int msgtd, void const * pointer(buffer), size_t nbytes, long type, int flag) 
+this function will take a messgae from the given message queue ID with respective pipe flag and copy to the structure(2nd argument) pointed by pointer for a given size.
+2nd-> void pointer to the empty structure
+5th-> ipc_no_wait flag
