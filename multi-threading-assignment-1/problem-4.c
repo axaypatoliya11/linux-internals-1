@@ -1,3 +1,5 @@
+// 4.write a program, which get and set pthread scheduling policy and priority.
+
 #include<pthread.h>
 #include<stdio.h>
 #include<unistd.h>

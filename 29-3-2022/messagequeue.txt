@@ -13,7 +13,7 @@ struct msqid_ds{
     msg1_bytes: max number of bytes in a message queue
     message of the last process ID that has performed the write operation(send time)
     message of the last process ID that has performed the read operation(recieve time)
-    message of the last process ID that has performed the last message send time operation(also called as a change time)
+    message of the last process ID that has performed the last message send time operation(also called as a change time[set on the basis of system time])
 
 };
 
@@ -49,3 +49,5 @@ msgercv(int msgtd, void const * pointer(buffer), size_t nbytes, long type, int f
 this function will take a messgae from the given message queue ID with respective pipe flag and copy to the structure(2nd argument) pointed by pointer for a given size.
 2nd-> void pointer to the empty structure
 5th-> ipc_no_wait flag
+
+int msgctl(int message_id, int cmd, struct msgid_ds * buffer);

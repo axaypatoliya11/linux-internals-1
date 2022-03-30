@@ -1,0 +1,34 @@
+shared memory allows 2 or more process to acess a given region of memory. it's the fastest IPC communication technique compare to all because no need to jump from one memory location to other memory location for data transmission b/w sender and reciever process. instead the given shared region is mapped into respective process address space. 
+
+example: common data required by multiple processes so a database is created and mapped in the shared memory region. so that all the process and threads of a respective process access a common database. implementation of a database is specific to platform space(hardware).
+
+shared memory region can be used b/w client and server communication all you trick needed is synchronization access to given shared memory region(simaphores can be used for the synchronization)
+
+
+mandatory header files in order to create shared memory
+
+#include<sys/bytes.h>
+#include<sys/bytes.h>
+
+syntax: shmget(key_t key, size_t nbytes, int flag);
+on success returns the ID of the shared memory created and on failure returns the -1.
+
+struct shmid_ds{
+    IPC permissions;
+    size of shared memory;
+
+};
+
+
+
+
+
+
+
+shmat(int shmid, const * shm_addr, int shmflag);
+it takes 3 args:
+1st->shared memory that I want to map
+2nd->address argument-where in my process address process i want to map
+3rd->flags. SHM_RDONLY
+
+on success will return pointer to shared memory region of my process address space.

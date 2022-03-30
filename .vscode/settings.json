@@ -2,6 +2,7 @@
     "files.associations": {
         "types.h": "c",
         "stdlib.h": "c",
-        "calc_mean.h": "c"
+        "calc_mean.h": "c",
+        "semaphore.h": "c"
     }
 }

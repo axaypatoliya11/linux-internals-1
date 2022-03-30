@@ -1,3 +1,5 @@
+// 3. Write a pthread program that implements simple initialization code.
+
 #include<pthread.h>
 #include<stdio.h>
 

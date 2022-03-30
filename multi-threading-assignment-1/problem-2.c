@@ -1,3 +1,6 @@
+// 2.Write a program where a structure of information passed to pthread task function, and
+// display structure of information.
+
 #include<pthread.h>
 #include<stdlib.h>
 #include<stdio.h>

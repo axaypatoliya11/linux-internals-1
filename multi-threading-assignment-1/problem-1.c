@@ -1,3 +1,6 @@
+// 1.Write a pthread application where main task terminated but pending pthreads task still
+// execute.
+
 #include<pthread.h>
 #include<stdlib.h>
 #include<stdio.h>

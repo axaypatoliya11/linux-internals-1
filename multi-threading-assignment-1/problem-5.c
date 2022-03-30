@@ -1,3 +1,6 @@
+// 5.Write a program that implements threads synchronization using pthread spinlock
+// techniques.
+
 // we can perform threading operations using posix
 #include<pthread.h>
 #include<stdlib.h>
