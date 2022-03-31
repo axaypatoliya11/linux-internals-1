@@ -1,0 +1,4 @@
+process can't take CPU on it's own, if it does then CPU can't operate. so schedular is there to allocate the CPU to the processes.
+
+system calls do not belong to user space. system calls are kernel specific system functions. system calls are invoked from the user space to call appropriate kernel services. each and every system call passes through a thin layer between user space and kernel space called as "System Call Interface". each and every system call has specific defination in kernal space and on this specific defination calls on a system call invocation.
+

@@ -9,10 +9,10 @@ int main()
 {
     char s[20];
     int fd;
-    mkfifo("myfifo", 0644);
-    perror("mkfifo");
-    printf("beforw open()\n");
-    fd = open("myfifo", O_RDONLY);
+    mkfifo("newfifo", 0644);
+    perror("newfifo");
+    printf("before open()\n");
+    fd = open("newfifo", O_RDONLY);
     read(fd, s, sizeof(s));
     printf("data:%s\n", s);
     return 0;

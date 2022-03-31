@@ -1,0 +1,15 @@
+Each and every device has it's own device driver.
+
+Device Drivers(with OS): It's a piece of software that communicates with the hardware, manages the hardware and brings the functionalities of the end device to the user.
+
+A device driver from OS point of view resites the kernal space. becaues only in the kernal space driver has underline privillages to communicate with the hardware.
+
+A driver from application point of view, application interactes to the driver that depends on the OS and communication with hardware that depends on the hardware.
+
+Device driver has 2 interfaces.
+1)interaction with the application
+2)interaction with the hardware
+
+interaction with the application is purely Linux Kernal OS there they got 3 interactes 1)character, 2)block, 3)network driver.
+
+Device driver deal with the hardware is purely hardware based.
