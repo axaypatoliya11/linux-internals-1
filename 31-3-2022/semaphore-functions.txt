@@ -1,0 +1,12 @@
+semop(); system call is used to change the value of simpahore lock.
+
+int semop(int sem_id, struct sembuf * struct, size_t nsops);
+
+int semget(key_t key, int semg, int semfig);
+
+int semctl(int sem_id, int semnum, int cmd, union semunion);
+
+
+semaphore number for which we want to change the value. semop() will tell us by which value simaphore will be changed.
+
+flag var is sem_undo. sem_undo helps OS to track/trace down changes done by a process on a simaphore. sem_undo value will help to automatically release a simaphore if process terminated without release.

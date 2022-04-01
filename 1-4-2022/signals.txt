@@ -1,0 +1,46 @@
+SIGNALS:
+Signals are software interrupts. They are notification to the processes that inform some events has occured
+Signals are asynchronous in nature & that can happen in anytime.
+Process with enough permissions can send signal to another process or else a process can send a signal to itself.
+Most of the cases our process getting signal fron the Kernal and CPU.
+
+Application of Signals:
+Signals are used for synchrozing in case of simaphore lock. 
+simaphore lock and unlocking will provide example of signaling.
+
+kill();(function) -> sends signal to another process and also to terminate the process which is running in the background.
+
+kill(command) -> interface of the kill() function
+
+
+Writer writing to a pipe without having a reader then kernal will notifies that please stop writing.
+
+When clock set by your alarm expires a signal called SIGaLRM generated.
+
+SIGURG1/SIGURG2 -> these signals are used by the system.
+
+Signals are the events that are triggered to notified the processes. They can be from CPU, kernal or any software running on a CPU.
+
+Hardware signals: events triggered by external components other than CPU.
+
+On a network device when network packet arrived they will send the interrupt to the CPU and CPU runs the appropriate network driver and ask to recieve the packet and process the packet.
+
+when ready to transmit over the network device triger interrupt to CPU and CPU runs appropriate network driver and say to please transmit the packet.
+
+when signal is sent to process any of these 3 actions can be generated:
+1)default action
+2)ignore action
+3)user-defined action
+
+
+SIGNAL HANDLER:
+Installing/establishing the user defined function:
+instead of executing a default action a user can run user defined function before that user has to establish or install the signal handler. signal handler is to notify the kernel to execute a user defined function when a signal is delivered.
+
+
+
+
+Signal handler syntax:
+void*(signal(int signal_number, void *function()))(int);
+
+Signal function takes 2 args. 1st is signal number and 2nd is function pointer that is executes a user defined function. signal function itself is a function pointer that takes single integer and returs void
