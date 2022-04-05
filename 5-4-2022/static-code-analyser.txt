@@ -1,0 +1,24 @@
+Static code analysis is a process of detecting errors, bugs in the source code not being run
+
+it's called static because the code is stationary, code is not running 
+
+it's done by analysing a set of instructions by using some codding standards provided by automation tool
+
+this kind of analysis is helpful to identify the loop holes and the weaknesses in the source code that might harmful
+
+command to analyse the file:
+$splint filename.c
+
+splint is a static code analysing tool is used to identify programming errors and bugs and a suspecious code.
+
+programming errors are identified and showed during compilation time.
+scripting languagees don't have compilers identifying errors are chellanging 
+
+splint is also identifies code if it's going against prescribed coding standard
+
+
+clang -stdlib=libc file_map_example.c
+objdump --full-contents --section=.comment a.out
+sudo update-alternatives --config cc
+
+
