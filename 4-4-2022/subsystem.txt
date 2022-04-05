@@ -1,0 +1,17 @@
+in the kernal we have sub systems.
+
+signal sub system is resposible to send signal to each and every process in the user space.
+
+case study(scenario):
+when an application has to convey the signal subsystem by giving application to ID and signal number the which we want to deliver to6 application 2.
+signal subsystem on behalf of application 1 deliver the signal to application 2.
+
+applications can registers with the timing subsystem. time subsystem is one which collects all CPU time slices. whenever an event occur will then notify to signal subsystem.
+
+application X using an alarm function is registing the timing subsystem for the delivery of a sig alaram signal. 
+
+when time expires will then notify the signal subsystem and signal subsystem will deliver signal to application X
+
+
+alarm();
+

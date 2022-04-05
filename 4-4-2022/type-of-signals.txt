@@ -1,0 +1,50 @@
+Types of signals:
+
+1) Job control signal
+2) application to application signal connection
+3) I/O signals
+
+when system recieves SIGTERM signal then process is terminated
+
+
+1) JOB CONTROL SIGNALS:
+SIGINT 1, SUGSEGV 11, SIGKILL 9, SIGSTOP 19, SIGTERM 15
+
+-> job control signals are managed by kernals. to control the process operation. whenever a process recieves a SIGTERM signal process terminates. during poweroff or a shutdown time initiated kernel is broadcasting signal SIGTERM to all application.
+
+2) APPLICATION TO APPLICATION SIGNAL CONNECTION:
+SIGUSR1, SIGUSR2, SIGPIPE, SIGCHILD, SIGALARM, SIGABRT
+
+-> SIGCHILD is a signal when a child process terminates kernel will send SIGCHILD signal to a parent process notifing the termination of a child process. in general a signal ignored by a child process.
+
+if parent wants to fetch/read exit status of a child then parent can call wait() and waitpid() function
+
+3) I/O SIGNALS:
+-> SIGIO signals when drivers are involved here. file descriptors and sockets when they are ready for input and output operation SIGIO signal is deliverd to respected process.
+
+
+struct signal_struct *signal; -> contains an array of 64 elements(signals). 
+
+struct signal_struct *sighand.
+
+
+in signal subsystem there's a function called as send_signal();. it will execute whenever a signal is to be deliverd to a process.
+
+steps followed by send_signal():
+1)send_signal will get the reference of the PCB to which the signal is to be delivered
+2)send_signal will access the signal structure of the PCB there's a pointer of type signal structure pointing to signal vector of 64 integers. send_signal will manipulate the signal structure.
+example: if you want to send a signal called SIGINT that is signal number 2 then it will enable the particular bit corresponding to signal number.
+3)send signal will raise CPU exception. now CPU stops the current task execution and executes the exception hadler. exception handler uses the second vector that is signal handler. exception handler will look for the particular enable bit in the siganl structure corresponding to it a function in signal handler vector is executed.
+
+There are some situations where destination process X wants to block particular signals(for example: process executing a critical section that is updating a database) in this scenario the process does not want to preampt(contact switching). here process can block particular signals.
+
+Process Y wants to fire the same signal(blocked by process X). Kernel will place the particular blocked signal in PCB of process X in that a strucure called pending signal placing the blocked signal. This signal is delivered only when process X unblocks the signal.
+
+SIGNAL PENDING: kernal holding the signal and deliver it later.
+
+you can stop any signal but not SIGKILL 9, SIKSTOP(SIKSTOP used by schedular whenever it wants to preampt)
+
+
+Preamptive process: preamption is taken care by kernal. process has to leave the CPU whenever the kernal preampts.
+
+Non Preamptive process: this processes will never leave the CPU untill CPU cycle done or else they go to block state.
