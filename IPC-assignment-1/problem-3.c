@@ -51,3 +51,7 @@ int main(){
 
     return 0;
 }
+
+
+/* data flow order:
+When the fork() is called, parent process will be executed first(inside else block). Parent process will performs the toggle operation by calling the toggle function and writes data to the pipe. Once parent process executes, child process will be executed and written data will be stored to the buffer called buf_to_read. */

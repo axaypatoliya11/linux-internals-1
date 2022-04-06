@@ -1,0 +1,13 @@
+        -:    0:Source:code-to-analyse.c
+        -:    0:Graph:code-to-analyse.gcno
+        -:    0:Data:code-to-analyse.gcda
+        -:    0:Runs:1
+        -:    1:#include<stdio.h>
+        -:    2:
+function main called 1 returned 100% blocks executed 100%
+        1:    3:int main(){
+        1:    4:    printf("hello world\n");
+call    0 returned 100%
+        -:    5:
+        1:    6:    return 0;
+        -:    7:}

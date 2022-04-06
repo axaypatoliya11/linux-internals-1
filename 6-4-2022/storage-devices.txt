@@ -1,0 +1,31 @@
+storage device can be anything. like hard drive, USB, micro SD Card, CD/DVD
+
+GRUB(bootloader for linux) - Grand Unified Bootloader
+
+bootloader not only searches for the OS image but it also initializes the external RAM
+
+In bias execution and bootloader execution mode CPU is in Real mode(looking at memory as series of bytes/array of bytes/sequence of bytes). addresses of these provided by vendor of the mother board.
+
+GRUB selects the kernal image and load kernel into RAM and giving the complete control to the RAM and there by GRUB stops
+
+
+kernal image starts execution in bootstrap code. and bootstrap code will shift the CPU to the protected mode.(this is called as processor initialization)
+
+VM Linux starts execution and is pre-written to start a function called start_kernel().
+
+start_kernel() initializes lots of kernel data structures. while it's initializes memory data structures, interrupt data structures, initializes process table, initializes file related structures and schedules schedular and also initializes kernel threads.
+
+
+gcov - gcov is GCC's program coverage tool.
+it works with respect to GCC to analyse the source code.
+also provides computation time for source code.
+
+gcov is used as a profiling tool which helps us to navigate or browse through entire source code. also allows us to modify or change the source code.
+
+to run the command: $gcc -fprofile-arcs -ftest-coverage file_name.c
+this will generate the executable ./a.out as well as file with extension file_name.gcda
+then run the command: $gcov file_name.c
+it will generate the file called file_name.c.gcov(perform gedit on this file)
+$gcov -a file_name.c
+$gcov -b file_name.c
+
